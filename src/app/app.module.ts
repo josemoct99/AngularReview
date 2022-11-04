@@ -3,10 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { DirectivasComponent } from './components/directivas/directivas.component';
+import { ObserverComponent } from './components/observer/observer.component';
+import { LazyLoadingComponent } from './components/lazy-loading/lazy-loading.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DataBindingComponent,
+    DirectivasComponent,
+    ObserverComponent,
+    LazyLoadingComponent
   ],
   imports: [
     BrowserModule,
