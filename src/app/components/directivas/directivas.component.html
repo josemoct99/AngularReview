@@ -26,7 +26,7 @@
             />
           </figure>
         </p>
-        <br>
+        <br />
         <li><h2 id="subtitulo">*ngFor</h2></li>
         <p>
           Permite representa una plantilla para cada elemento dentro de una
@@ -92,7 +92,7 @@
             <td>{{ iter_person.correo }}</td>
           </tr>
         </table>
-        <br>
+        <br />
         <li><h2 id="subtitulo">ngSwitch</h2></li>
         <p>
           La directiva [ngSwitch] en un contenedor especifica una expresión con
@@ -114,11 +114,21 @@
         Ejemplo:
         <div [ngSwitch]="persona.nombre" *ngIf="persona.nombre.length >= 4">
           <p *ngSwitchCase="''"></p>
-          <p *ngSwitchCase="'Wilson'">Usuario Registrado: Hola {{persona.nombre}}!</p>
-          <p *ngSwitchCase="'Ingrith'">Usuario Registrado: Hola {{persona.nombre}}!</p>
-          <p *ngSwitchCase="'Maury'">Usuario Registrado: Hola {{persona.nombre}}!</p>
-          <p *ngSwitchCase="'Jose'">Usuario Registrado: Hola {{persona.nombre}}!</p>
-          <p *ngSwitchDefault="">Usuario Desconocido ... Mucho gusto {{persona.nombre}}!</p>
+          <p *ngSwitchCase="'Wilson'">
+            Usuario Registrado: Hola {{ persona.nombre }}!
+          </p>
+          <p *ngSwitchCase="'Ingrith'">
+            Usuario Registrado: Hola {{ persona.nombre }}!
+          </p>
+          <p *ngSwitchCase="'Maury'">
+            Usuario Registrado: Hola {{ persona.nombre }}!
+          </p>
+          <p *ngSwitchCase="'Jose'">
+            Usuario Registrado: Hola {{ persona.nombre }}!
+          </p>
+          <p *ngSwitchDefault="">
+            Usuario Desconocido ... Mucho gusto {{ persona.nombre }}!
+          </p>
         </div>
       </ul>
     </article>
@@ -130,9 +140,42 @@
     <article>
       <ul>
         <li><h2 id="subtitulo">ngClass</h2></li>
+        <p>Agrega y elimina clases CSS en un elemento HTML.</p>
+        <br />
         <li><h2 id="subtitulo">ngStyle</h2></li>
+        <p>
+          Actualiza los estilos del elemento HTML que lo contiene. Establece una
+          o más propiedades de estilo, especificadas como pares clave-valor
+          separados por dos puntos. La clave es un nombre de estilo, con un
+          sufijo. El valor es una expresión a evaluar. Si el resultado de la
+          evaluación es nulo, se elimina el estilo correspondiente.
+        </p>
+        <br />
         <li><h2 id="subtitulo">ngPlural</h2></li>
+        <p>
+          Agrega/elimina subárboles DOM en función de un valor numérico.
+          Diseñado para la pluralización.
+        </p>
       </ul>
+      <p>Ejemplo:</p>
+      <input
+        type="text"
+        required
+        #inputAtributo="ngModel"
+        [(ngModel)]="persona.nombre"
+      />
+      <p
+        class="ngEjemplo"
+        [ngClass]="{
+          valid: inputAtributo.valid,
+          invalid: inputAtributo.invalid
+        }"
+        [ngStyle]="{
+          'font-size': persona.edad
+        }"
+      >
+        Muestra de ngClass y ngStyle
+      </p>
     </article>
   </section>
 </main>

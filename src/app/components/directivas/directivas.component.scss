@@ -12,3 +12,13 @@
   font-size: 20px;
   font-family: Arial black;
 }
+
+.ngEjemplo{
+  font-family: 'Courier New', Courier, monospace;
+  &.invalid{
+    color: red;
+  }
+  &.valid{
+    color: blue;
+  }
+}
