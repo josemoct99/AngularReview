@@ -1,1 +1,145 @@
 <p>directivas works!</p>
+
+<main>
+  <section>
+    <hr />
+    <h1 id="titulo">directivas estructurales</h1>
+    <hr />
+    <article>
+      <ul>
+        <li><h2 id="subtitulo">*ngIF</h2></li>
+        <p>
+          Permite incluir una plantilla de forma condicional en base al valor de
+          una expresión forzada a booleana. Cuando la expresión se evalúa como
+          verdadera, Angular representa/renderiza la plantilla proporcionada en
+          una cláusula "then", y cuando es falsa o nula, Angular representa la
+          plantilla proporcionada en una cláusula opcional "else". La plantilla
+          predeterminada para la cláusula "else" est&aacute; en blanco. Ejemplo:
+          <br />
+          <input type="text" [(ngModel)]="inputIf" />
+          <figure padding="100px" margin="100px">
+            <img
+              src="https://i.imgur.com/PfA0M2o.gif"
+              alt="Dog dance"
+              width="20%"
+              *ngIf="inputIf === 'Dance'; else elseIfBlock"
+            />
+          </figure>
+        </p>
+        <br>
+        <li><h2 id="subtitulo">*ngFor</h2></li>
+        <p>
+          Permite representa una plantilla para cada elemento dentro de una
+          colección. La directiva se coloca en un elemento, que se convierte en
+          el padre de las plantillas clonadas. Ejemplo:
+        </p>
+        <br />
+        <form (ngSubmit)="addRegister()" #myForm="ngForm">
+          <div class="input-form">
+            <label for="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              [(ngModel)]="persona.nombre"
+            />
+          </div>
+          <div class="input-form">
+            <label for="apellido">Apellidos</label>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              required
+              [(ngModel)]="persona.correo"
+            />
+          </div>
+          <div class="input-form">
+            <label for="edad">Edad</label>
+            <input
+              type="number"
+              id="edad"
+              name="edad"
+              required
+              [(ngModel)]="persona.edad"
+            />
+          </div>
+          <div class="input-form">
+            <label for="correo">Email</label>
+            <input
+              type="text"
+              id="correo"
+              name="correo"
+              required
+              [(ngModel)]="persona.correo"
+            />
+          </div>
+          <button [disabled]="myForm.invalid" type="submit">Añadir</button>
+        </form>
+        <!-- <button (click)="addRegister()">Agregar registro</button> -->
+        <table class="default">
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Correo</th>
+          </tr>
+          <tr *ngFor="let iter_person of personas">
+            <td>{{ iter_person.nombre }}</td>
+            <td>{{ iter_person.apellido }}</td>
+            <td>{{ iter_person.edad }}</td>
+            <td>{{ iter_person.correo }}</td>
+          </tr>
+        </table>
+        <br>
+        <li><h2 id="subtitulo">ngSwitch</h2></li>
+        <p>
+          La directiva [ngSwitch] en un contenedor especifica una expresión con
+          la que comparar. Las expresiones para hacer coincidir las proporcionan
+          las directivas ngSwitchCase en las vistas dentro del contenedor.
+        </p>
+        <ul>
+          <li>Se representa cada vista que coincide.</li>
+          <li>
+            Si no hay coincidencias, se representa una vista con la directiva
+            ngSwitchDefault.
+          </li>
+          <li>
+            Los elementos dentro de la instrucción [NgSwitch] pero fuera de
+            cualquier directiva NgSwitchCase o ngSwitchDefault se conservan en
+            la ubicación.
+          </li>
+        </ul>
+        Ejemplo:
+        <div [ngSwitch]="persona.nombre" *ngIf="persona.nombre.length >= 4">
+          <p *ngSwitchCase="''"></p>
+          <p *ngSwitchCase="'Wilson'">Usuario Registrado: Hola {{persona.nombre}}!</p>
+          <p *ngSwitchCase="'Ingrith'">Usuario Registrado: Hola {{persona.nombre}}!</p>
+          <p *ngSwitchCase="'Maury'">Usuario Registrado: Hola {{persona.nombre}}!</p>
+          <p *ngSwitchCase="'Jose'">Usuario Registrado: Hola {{persona.nombre}}!</p>
+          <p *ngSwitchDefault="">Usuario Desconocido ... Mucho gusto {{persona.nombre}}!</p>
+        </div>
+      </ul>
+    </article>
+  </section>
+  <section>
+    <hr />
+    <h1 id="titulo">directivas de atributo</h1>
+    <hr />
+    <article>
+      <ul>
+        <li><h2 id="subtitulo">ngClass</h2></li>
+        <li><h2 id="subtitulo">ngStyle</h2></li>
+        <li><h2 id="subtitulo">ngPlural</h2></li>
+      </ul>
+    </article>
+  </section>
+</main>
+
+<ng-template #elseIfBlock>
+  <p>
+    Estamos dentro del bloque "else", prueba escribiendo 'Dance' en el input
+    box!
+  </p>
+</ng-template>
